@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <script src="index.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="challenge-card-container"></div>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <div id="challenge-name"></div>
+            <div id="challenge-info">
+                <div id="difficulty"></div>
+                <div id="type"></div>
+            </div>
+            <hr>
+            <div id="author"></div>
+            <h2>Description</h2>
+            <div id="description"></div>
+            <input type="text" id="flag-input" placeholder="PacoCTF(Flag)">
+            <button id="submit-btn">Submit Flag</button>
+            <span id="result"></span>
+            <hr>
+            <h2>Hints</h2>
+            <div id="hint-btn-container"></div>
+            <div id="hint-container" class="hint">This is the first hint!</div>
+        </div>
+    </div>
+</body>
+</html>
