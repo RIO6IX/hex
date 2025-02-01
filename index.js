@@ -27,7 +27,7 @@ const modalName = document.getElementById("challenge-name");
 const modalAuthor = document.getElementById("author");
 const modalDescription = document.getElementById("description");
 const closeBtn = document.querySelector(".close-btn");
-const submitBtn = document.getElementById("submit")
+const submitBtn = document.getElementById("submit-btn")
 const result = document.getElementById("result")
 
 card_container.addEventListener('click', (event) => {
@@ -36,9 +36,11 @@ card_container.addEventListener('click', (event) => {
     if (event.target.classList.contains('accept-btn')) {
         currentChallengeId = event.target.dataset.id
         modalType.textContent = challengeData[currentChallengeId].type
+
         modalDifficulty.textContent = challengeData[currentChallengeId].difficulty
+        modalDifficulty.classList.add("challenge-difficulty", `${challengeData[currentChallengeId].difficulty}`)
         modalName.textContent = challengeData[currentChallengeId].name
-        modalAuthor.textContent = challengeData[currentChallengeId].author
+        modalAuthor.textContent = `AUTHOR: ${challengeData[currentChallengeId].author}`
         modalDescription.textContent = challengeData[currentChallengeId].description 
 
         modal.style.display = 'block'
@@ -46,21 +48,25 @@ card_container.addEventListener('click', (event) => {
     }
 })
 
-closeBtn.addEventListener('click', () => {
-    modal.style.display = 'none'
-    result.innerText = ''
-})
-
-submitBtn.addEventListener('click', () => {
+function checkAnswer() {
+    const SALT = "mySecretSalt123";
     const answer = challengeData[currentChallengeId].answer
-    const submittedAnswer = document.getElementById("flag-input")
-    if (answer === submittedAnswer.value) {
+    const userAnswer = document.getElementById("flag-input")
+    const hash = CryptoJS.SHA256(userAnswer.value.trim() + SALT).toString();
+    if (answer === hash) {
         result.innerText = '✅'
     } else {
         result.innerText = '❌'
     }
 
-    submittedAnswer.value = ''
+    userAnswer.value = ''
+}
+
+submitBtn.addEventListener('click', checkAnswer)
+
+closeBtn.addEventListener('click', () => {
+    modal.style.display = 'none'
+    result.innerText = ''
 })
 
 window.addEventListener('click', (event) => {
@@ -69,3 +75,14 @@ window.addEventListener('click', (event) => {
         result.innerText = ''
     }
 })
+
+
+// Toggle Hint section
+function showHint(hintNumber) {
+    const hint = document.getElementById("hint-container")
+
+    if (hint.style.display === "none" || hint.style.display === "") {
+        hint.style.display = "block"
+    }
+    hint.textContent = challengeData[currentChallengeId].hints[hintNumber]
+}

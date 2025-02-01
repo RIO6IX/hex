@@ -89,7 +89,7 @@
     border-radius: 10px;
     width: 50%;
     margin: 10% auto;
-    text-align: center;
+    text-align: left;
     position: relative;
 }
 
@@ -100,3 +100,62 @@
     font-size: 18px;
     cursor: pointer;
 }
+
+#challenge-info {
+    display: flex;
+
+}
+
+#challenge-name {
+    font-size: 1.5rem;
+}
+
+#difficulty {
+   margin: 10px 10px 10px 0;
+}
+
+#type {
+    border: none;
+    border-radius: 80vw;
+    background: #E53A72;
+    background: linear-gradient(270deg, #E53A72, #E50311);
+    font-size: 0.7rem;
+    font-weight: bold;
+    color: white;
+    margin: 10px 10px 10px 0;
+    padding: 5px 8px;
+}
+
+#flag-input {
+    margin-top: 20px;
+    width: 70%;
+    font-size: 1.5rem;
+}
+
+#submit-btn {
+    font-size: 1.5rem
+}
+
+/* Modal Hint section */
+.hint {
+    display: none;
+    padding: 10px;
+    margin-top: 10px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.hint-button {
+    padding: 8px 16px;
+    margin: 5px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.hint-button:hover {
+    background-color: #45a049;
+}
+
