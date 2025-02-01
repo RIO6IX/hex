@@ -1,0 +1,112 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96c93d);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    overflow: hidden;
+}
+
+.container {
+    position: relative;
+    z-index: 1;
+    backdrop-filter: blur(10px);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.header {
+    text-align: center;
+    color: white;
+    margin-bottom: 3rem;
+}
+
+h1 {
+    font-size: 5rem;
+    text-shadow: 3px 3px 0 rgba(0,0,0,0.1);
+    margin-bottom: 1rem;
+    transform: rotate(-5deg);
+    animation: float 3s ease-in-out infinite;
+}
+
+.subtitle {
+    font-size: 1.5rem;
+    letter-spacing: 3px;
+    margin-bottom: 2rem;
+}
+
+.floating-shapes div {
+    position: absolute;
+    border-radius: 50%;
+    animation: float 6s infinite linear;
+    filter: blur(2px);
+}
+
+.cta-button {
+    padding: 1.5rem 3rem;
+    font-size: 1.2rem;
+    background: linear-gradient(45deg, #ffffff, #e0e0e0);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 2px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.cta-button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+    background: linear-gradient(45deg, #e0e0e0, #ffffff);
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(5deg); }
+}
+
+.features {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.feature-card {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 2rem;
+    border-radius: 20px;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+    text-align: center;
+    color: white;
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+    background: rgba(255, 255, 255, 0.2);
+}
+
+@media (max-width: 768px) {
+    h1 { font-size: 3rem; }
+    .features { grid-template-columns: 1fr; }
+}
