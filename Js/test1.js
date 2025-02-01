@@ -2,8 +2,8 @@ const SALT = "mySecretSalt123";
 
 // Answer hashes (generated offline)
 const answerHashes = {
-    q1: "5d36336fe2df6b5a1233e186d92a6a646a5715bebc2de96738c7a56e25f24767", // Hash for "Paris"
-    // Hash for other answers
+    q1: "5d36336fe2df6b5a1233e186d92a6a646a5715bebc2de96738c7a56e25f24767", 
+    
 };
 
 function checkAnswer(questionId) {
