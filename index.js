@@ -26,9 +26,11 @@ const modalDifficulty = document.getElementById("difficulty");
 const modalName = document.getElementById("challenge-name");
 const modalAuthor = document.getElementById("author");
 const modalDescription = document.getElementById("description");
+const modalHintContainer = document.getElementById("hint-btn-container")
 const closeBtn = document.querySelector(".close-btn");
 const submitBtn = document.getElementById("submit-btn")
 const result = document.getElementById("result")
+const hint = document.getElementById("hint-container")
 
 card_container.addEventListener('click', (event) => {
     event.preventDefault()
@@ -39,9 +41,14 @@ card_container.addEventListener('click', (event) => {
 
         modalDifficulty.textContent = challengeData[currentChallengeId].difficulty
         modalDifficulty.classList.add("challenge-difficulty", `${challengeData[currentChallengeId].difficulty}`)
+
         modalName.textContent = challengeData[currentChallengeId].name
         modalAuthor.textContent = `AUTHOR: ${challengeData[currentChallengeId].author}`
         modalDescription.textContent = challengeData[currentChallengeId].description 
+
+        challengeData[currentChallengeId].hints.map((hint,index) => (
+            modalHintContainer.innerHTML += `<button class="hint-button" onclick="showHint(${index})">${index + 1}</button>`
+        ))
 
         modal.style.display = 'block'
 
@@ -67,19 +74,23 @@ submitBtn.addEventListener('click', checkAnswer)
 closeBtn.addEventListener('click', () => {
     modal.style.display = 'none'
     result.innerText = ''
+    hint.style.display = "none"
+    modalHintContainer.innerHTML = ''
 })
 
 window.addEventListener('click', (event) => {
     if(event.target === modal) {
         modal.style.display = 'none'
         result.innerText = ''
+        hint.style.display = "none"
+        modalHintContainer.innerHTML = ''
     }
 })
 
 
 // Toggle Hint section
 function showHint(hintNumber) {
-    const hint = document.getElementById("hint-container")
+    
 
     if (hint.style.display === "none" || hint.style.display === "") {
         hint.style.display = "block"
