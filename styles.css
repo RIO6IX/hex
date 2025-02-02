@@ -1,3 +1,8 @@
+body {
+    overflow: hidden;
+    transition: border 0.2s ease-in-out;
+}
+
 /* Challenge cards styling */
 
 .challenge-card {
@@ -91,6 +96,7 @@
     margin: 10% auto;
     text-align: left;
     position: relative;
+    transition: border 0.2s ease-in-out;
 }
 
 .close-btn {
@@ -159,3 +165,31 @@
     background-color: #45a049;
 }
 
+/* Flashing red border for incorrect answers */
+
+@keyframes flash-border {
+    0% { box-shadow: 0 0 10px red;}
+    50% { box-shadow: 0 0 40px red;}
+    100% { box-shadow: 0 0 10px red; }
+}
+
+.flash-red {
+    animation: flash-border 0.5s ease-in-out;
+}
+
+/* Confetti for correct answers */
+
+.confetti {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: white;
+    opacity: 0.8;
+    border-radius: 50%;
+    animation: fall linear infinite;
+}
+
+@keyframes fall {
+    0% { transform: translateY(0) rotate(0);}
+    100% { transform: translateY(100vh) rotate(360deg)}
+}

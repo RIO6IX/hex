@@ -21,6 +21,7 @@ fetch('data.json')
     .catch(error => console.error(error))
     
 const modal = document.getElementById("modal")
+const modalContent = document.getElementById("modal-content")
 const modalType = document.getElementById("type");
 const modalDifficulty = document.getElementById("difficulty");
 const modalName = document.getElementById("challenge-name");
@@ -29,7 +30,6 @@ const modalDescription = document.getElementById("description");
 const modalHintContainer = document.getElementById("hint-btn-container")
 const closeBtn = document.querySelector(".close-btn");
 const submitBtn = document.getElementById("submit-btn")
-const result = document.getElementById("result")
 const hint = document.getElementById("hint-container")
 
 card_container.addEventListener('click', (event) => {
@@ -61,9 +61,9 @@ function checkAnswer() {
     const userAnswer = document.getElementById("flag-input")
     const hash = CryptoJS.SHA256(userAnswer.value.trim() + SALT).toString();
     if (answer === hash) {
-        result.innerText = '✅'
+        showConfetti()
     } else {
-        result.innerText = '❌'
+        flashRedBorder()
     }
 
     userAnswer.value = ''
@@ -73,7 +73,6 @@ submitBtn.addEventListener('click', checkAnswer)
 
 closeBtn.addEventListener('click', () => {
     modal.style.display = 'none'
-    result.innerText = ''
     hint.style.display = "none"
     modalHintContainer.innerHTML = ''
 })
@@ -81,19 +80,40 @@ closeBtn.addEventListener('click', () => {
 window.addEventListener('click', (event) => {
     if(event.target === modal) {
         modal.style.display = 'none'
-        result.innerText = ''
         hint.style.display = "none"
         modalHintContainer.innerHTML = ''
     }
 })
 
-
 // Toggle Hint section
 function showHint(hintNumber) {
-    
-
     if (hint.style.display === "none" || hint.style.display === "") {
         hint.style.display = "block"
+        hint.textContent = challengeData[currentChallengeId].hints[hintNumber]
+    } else {
+        hint.style.display = "none"
     }
-    hint.textContent = challengeData[currentChallengeId].hints[hintNumber]
+}
+
+function flashRedBorder() {
+    modalContent.classList.add("flash-red")
+    setTimeout(() => {
+        modalContent.classList.remove("flash-red")
+    }, 1500)
+}
+
+function showConfetti() {
+    for (let i=0; i < 100; i++) {
+        let confetti = document.createElement("div")
+        confetti.classList.add("confetti")
+        document.body.appendChild(confetti)
+        confetti.style.left = Math.random() * window.innerWidth + "px"
+        confetti.style.top = "-10px"
+        confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 70%)`
+        confetti.style.animationDuration = (Math.random() * 3 + 2) + "s"
+        confetti.style.animationDelay = Math.random() * 2 + "s"
+        confetti.style.transform = `rotate(${Math.random() * 360}deg)`
+
+        setTimeout(() => confetti.remove(), 5000)
+    }
 }
