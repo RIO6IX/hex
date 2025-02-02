@@ -11,6 +11,9 @@ body {
     background-size: 400% 400%;
     animation: gradientBG 15s ease infinite;
     overflow: hidden;
+    background-image: url('./images/wa1.png');
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .container {
