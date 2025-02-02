@@ -60,7 +60,7 @@
         "id":5,
         "name": "Stego Secrets",
         "author": "Chanuka Isuru Samapath (RIO6IX)",
-        "description": "This image has been tampered with in multiple ways.Can you retrieve the hidden flag? [here the file](https://raw.githubusercontent.com/RIO6IX/hex/045f02022514ec290e2ff23dd12df08bcaed32d1/challengers/forensic/images.jpeg)",
+        "description": "This image has been tampered with in multiple ways.Can you retrieve the hidden flag? <a href='https://raw.githubusercontent.com/RIO6IX/hex/045f02022514ec290e2ff23dd12df08bcaed32d1/challengers/forensic/images.jpeg' download>here the file</a>",
         "type": "Forensics",
         "difficulty": "Easy",
         "answer":"0e71e4936050d2259d796f0c2cb2d0ebf95650607edc36bb7c1eacc6d4799c52",
