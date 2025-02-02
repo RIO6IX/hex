@@ -5,6 +5,7 @@
         "author": "chanu baba",
         "description": "People keep trying to trick my players with imitation flags. I want to make sure they get the real thing! I'm going to provide the SHA-256 hash and a decrypt script to help you know that my flags are legitimate.",
         "type": "Cryptography",
+        "category": "cryptography",
         "difficulty": "Easy",
         "answer":"afc7b48baa674b479da07daa08ebf7f66cce0331d3d76f317c771bfd09973f0d",
         "hints": ["this is the first hint", "this is the second hint"]
@@ -16,6 +17,7 @@
         "author": "chanu baba",
         "description": "People keep trying to trick my players with imitation flags. I want to make sure they get the real thing! I'm going to provide the SHA-256 hash and a decrypt script to help you know that my flags are legitimate.",
         "type": "Forensics",
+        "category": "forensics",
         "difficulty": "Medium",
         "answer":"072346f366b178d501ee2de070591252c32b63f01003641be6609712a8f670e6",
         "hints": ["this is the first hint"]
@@ -27,6 +29,7 @@
         "author": "chanu baba",
         "description": "People keep trying to trick my players with imitation flags. I want to make sure they get the real thing! I'm going to provide the SHA-256 hash and a decrypt script to help you know that my flags are legitimate.",
         "type": "Reverse Engineering",
+        "category": "reverseEngineering",
         "difficulty": "Hard",
         "answer":"482f134d66622564a1e1dcdcaf63b95bf50974a2d44e00a7fb9a17cee2874ea1",
         "hints": ["this is the first hint", "this is the second hint", "this is the third hint"]

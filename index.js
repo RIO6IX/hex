@@ -8,7 +8,7 @@ fetch('data.json')
         challengeData = data
         data.map(challenge => (
             card_container.innerHTML += `
-                <div class='challenge-card'>
+                <div class='challenge-card' data-category='${challenge.category}'>
                     <div class='challenge-type'>${challenge.type}</div>
                     <div class='challenge-difficulty ${challenge.difficulty}'>${challenge.difficulty}</div>
                     <div class='challenge-title'>${challenge.name}</div>
@@ -17,6 +17,7 @@ fetch('data.json')
             `
         ))
         setTimeout(() => {data = null}, 1000)
+        filterQuestions()
     })
     .catch(error => console.error(error))
     
@@ -117,3 +118,17 @@ function showConfetti() {
         setTimeout(() => confetti.remove(), 5000)
     }
 }
+
+function filterQuestions() {
+    let selectedCategory = document.getElementById("category").value
+    let questions = document.querySelectorAll(".challenge-card")
+
+    questions.forEach(question => {
+        if (selectedCategory === "all" || question.getAttribute("data-category") === selectedCategory) {
+            question.classList.add("visible")
+        } else {
+            question.classList.remove("visible")
+        }
+    })
+}
+

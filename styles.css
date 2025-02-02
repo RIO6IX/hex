@@ -1,6 +1,48 @@
 body {
-    overflow: hidden;
-    transition: border 0.2s ease-in-out;
+    padding: 0;
+    margin: 0;
+}
+.grid-container {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    height: 100vh;
+}
+
+/* Sidebar filter menu*/
+
+.sidebar {
+    background-color: #333;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    border-right: 20px solid #444;
+    color: white;
+}
+
+.sidebar h2 {
+    font-size: 20px;
+    border-bottom: 2px solid #555;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+select {
+    padding: 10px;
+    font-size: 16px;
+    background-color: #444;
+    color: white;
+    border: none;
+    outline: none;
+}
+
+/* Main content div */
+
+.main-content {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 /* Challenge cards styling */
@@ -16,6 +58,11 @@ body {
     margin: 10px;
     padding: 10px;
     position: relative;
+    display: none;
+}
+
+.challenge-card.visible {
+    display: block;
 }
 
 .challenge-link {
@@ -24,9 +71,9 @@ body {
 }
 
 #challenge-card-container {
-    border: 1px solid black;
     padding: 20px;
     display: flex;
+    flex-direction: row;
     flex-wrap: wrap;
 }
 
