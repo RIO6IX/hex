@@ -1,4 +1,6 @@
 [
+
+    
     {
         "id":0,
         "name": "first_challenge",
@@ -7,7 +9,8 @@
         "type": "Cryptography",
         "category": "cryptography",
         "difficulty": "Easy",
-        "answer":"afc7b48baa674b479da07daa08ebf7f66cce0331d3d76f317c771bfd09973f0d",
+        "answer":"6de40c26359410422cd1b8f811e96f0d02171228b1a001be6c176dc13f8e2860",
+        
         "hints": ["this is the first hint", "this is the second hint"]
     },
 
@@ -19,7 +22,7 @@
         "type": "Forensics",
         "category": "forensics",
         "difficulty": "Medium",
-        "answer":"072346f366b178d501ee2de070591252c32b63f01003641be6609712a8f670e6",
+        "answer":"6b97ee2a4942f7d189b0864d9acd16c0e09efe2802b25b8edfd598a8cb8e9908",
         "hints": ["this is the first hint"]
     },
 
@@ -31,7 +34,40 @@
         "type": "Reverse Engineering",
         "category": "reverseEngineering",
         "difficulty": "Hard",
-        "answer":"482f134d66622564a1e1dcdcaf63b95bf50974a2d44e00a7fb9a17cee2874ea1",
+        "answer":"f323927af09ba846937541caf554611eff49fa7da4558dc7043dad0f5d63d6dd",
         "hints": ["this is the first hint", "this is the second hint", "this is the third hint"]
+    },
+
+    {
+        "id":3,
+        "name": "Mystery",
+        "author": "Chanuka Isuru Samapath (RIO6IX)",
+        "description": "We've recovered an image, and intelligence suggests that there might be hidden data stored within it.However, nothing is visible at first glance.Can you find the secret information?",
+        "type": "Forensics",
+        "difficulty": "Easy",
+        "answer":"db9ae13cfbdff0db6315cb16657db8b889eb4e3ad829e8378cd203f27c5c11f5",
+        "hints": ["Sometimes, useful data is stored in metadata fields"]
+    },
+
+    {
+        "id":4,
+        "name": "See Stego? ",
+        "author": "Chanuka Isuru Samapath (RIO6IX)",
+        "description": "We suspect that someone has hidden information inside image. However, without the right key, we can't access it. Can you find the hidden flag?.",
+        "type": "Forensics",
+        "difficulty": "Easy",
+        "answer":"9a65fa90e17347b8e1528b6975036d8c8e9a4b7fd6c5c9936633fa1844b62dc1",
+        "hints": ["password"]
+    },
+
+    {
+        "id":5,
+        "name": "Stego Secrets",
+        "author": "Chanuka Isuru Samapath (RIO6IX)",
+        "description": "This image has been tampered with in multiple ways.Can you retrieve the hidden flag? <a href='https://raw.githubusercontent.com/RIO6IX/hex/045f02022514ec290e2ff23dd12df08bcaed32d1/challengers/forensic/images.jpeg' download>here the file</a>",
+        "type": "Forensics",
+        "difficulty": "Easy",
+        "answer":"0e71e4936050d2259d796f0c2cb2d0ebf95650607edc36bb7c1eacc6d4799c52",
+        "hints": ["password123"]
     }
 ]
