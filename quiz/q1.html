@@ -16,6 +16,33 @@
             padding: 20px;
         }
 
+        nav {
+            background-color: rgb(78, 94, 97);
+            height: 3rem;
+            font-size: 1.5rem;
+            font-family: 'Merriweather sans';
+            font-weight: bold;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: rgb(187, 191, 225);
+        }
+
+        nav a.active {
+            color: rgb(49, 27, 97);
+        }
+
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            height: 100vh;
+        }
         .container {
             background-color: #ffffff;
             padding: 40px;
@@ -137,6 +164,18 @@
     </style>
 </head>
 <body>
+    <header>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="challenges.html">Challenges</a>
+            <a href="quizlist.html">Quiz</a>
+            <a href="about.html">About Us</a>
+            <a href="https://discord.gg/HsrR2QSm" target="_blank"><i class="fab fa-discord"></i></a>
+            <a href="https://www.linkedin.com/company/cortex-ctf/" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://chanuka1.medium.com/" target="_blank"><i class="fab fa-medium"></i></a>
+            <a href="https://chat.whatsapp.com/E7vlULhFjkR0XVXqQURfTO" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        </nav>
+    </header>
     <div class="container">
         <div class="header">
             <span class="quiz-title">Linux Command Quiz 1</span>
