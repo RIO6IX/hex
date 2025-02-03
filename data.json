@@ -3,15 +3,15 @@
     
     {
         "id":0,
-        "name": "first_challenge",
-        "author": "chanu baba",
-        "description": "People keep trying to trick my players with imitation flags. I want to make sure they get the real thing! I'm going to provide the SHA-256 hash and a decrypt script to help you know that my flags are legitimate.",
-        "type": "Cryptography",
+        "name": "Shifted Secrets",
+        "author": "Chanuka Isuru Samapath (RIO6IX)",
+        "description": "Our intelligence team intercepted an encrypted message, but we can't seem to decode it.The encryption method appears to be a classical technique with a twist. Can you figure out the original plaintext and retrieve the flag? Encrypted Message: UHQ{ge56_nlt8_9wpoq}",
+        "link":"https://raw.githubusercontent.com/RIO6IX/hex/045f02022514ec290e2ff23dd12df08bcaed32d1/challengers/forensic/images.jpeg",
+        "type": "cryptography",
         "category": "cryptography",
         "difficulty": "Easy",
-        "answer":"6de40c26359410422cd1b8f811e96f0d02171228b1a001be6c176dc13f8e2860",
-        
-        "hints": ["this is the first hint", "this is the second hint"]
+        "answer":"RIO{ca12_hdp4_5slma}",
+        "hints": ["The encryption technique is one of the simplest substitution ciphers."]
     },
 
     {
@@ -75,6 +75,69 @@
         "difficulty": "Easy",
         "answer":"f323927af09ba846937541caf554611eff49fa7da4558dc7043dad0f5d63d6dd",
         "hints": ["password123"]
+    },
+
+
+    {
+        "id":6,
+        "name": "reverse1",
+        "author": "Chanuka Isuru Samapath (RIO6IX)",
+        "description": "",
+        "link":"",
+        "type": "Reverse Engineering",
+        "category": "",
+        "difficulty": "Easy",
+        "answer":"RIO{reverseengineering_is_fun}",
+        "hints": ["strings"]
+    },
+
+    {
+        "id":7,
+        "name": "reverse2",
+        "author": "Chanuka Isuru Samapath (RIO6IX)",
+        "description": "",
+        "link":"",
+        "type": "Reverse Engineering",
+        "category": "",
+        "difficulty": "Easy",
+        "answer":"RIO{You_Got_It}",
+        "hints": ["strings"]
+    },
+    {
+        "id":8,
+        "name": "reverse2",
+        "author": "Chanuka Isuru Samapath (RIO6IX)",
+        "description": "",
+        "link":"",
+        "type": "Reverse Engineering",
+        "category": "",
+        "difficulty": "Easy",
+        "answer":"RIO{reverseengineering_is_fun}",
+        "hints": [""]
+    },
+    {
+        "id":9,
+        "name": "reverse3",
+        "author": "Chanuka Isuru Samapath (RIO6IX)",
+        "description": "",
+        "link":"",
+        "type": "Reverse Engineering",
+        "category": "",
+        "difficulty": "Easy",
+        "answer":"RIO{Hell0_W0rld}",
+        "hints": [""]
+    },
+    {
+        "id":10,
+        "name": "reverse4",
+        "author": "Chanuka Isuru Samapath (RIO6IX)",
+        "description": "",
+        "link":"",
+        "type": "Reverse Engineering",
+        "category": "",
+        "difficulty": "Medium",
+        "answer":"RIO{reverseengineering_is_fun}",
+        "hints": ["RIO{CQAdss_ff23_bvde36}"]
     }
 ]
 
