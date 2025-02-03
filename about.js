@@ -40,3 +40,15 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
   
+
+
+  document.addEventListener("DOMContentLoaded", function () {
+    let links = document.querySelectorAll("nav a");
+    let currentPage = window.location.pathname;
+
+    links.forEach(link => {
+        if (link.href.includes(currentPage)) {
+            link.classList.add("active");
+        }
+    });
+});

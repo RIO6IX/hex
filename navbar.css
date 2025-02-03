@@ -66,3 +66,12 @@
     font-size: 1.2rem;
   }
   
+/* Style for the active tab */
+nav a.active {
+  color: var(--nav-hover-color); /* Highlight active tab */
+}
+
+/* Ensure underline is always visible on active tab */
+nav a.active::after {
+  width: 100%;
+}

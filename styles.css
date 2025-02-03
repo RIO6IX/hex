@@ -7,6 +7,7 @@ body {
 }
 
 /* Navbar styling */
+
 nav {
     background-color: rgb(78, 94, 97);
     height: 3rem;
@@ -27,7 +28,6 @@ nav a {
 nav a.active {
     color: rgb(49, 27, 97);
 }
-
 
 .grid-container {
     display: grid;
