@@ -1,30 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="about.css">
-    <script src="index.js" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
-    <title>Home</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About pacoCTF</title>
+  <!-- Futuristic Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <!-- Updated CSS -->
+  <link rel="stylesheet" href="about.css">
 </head>
 <body>
+  <div class="logo-container">
+    <img src="images/logo.jpg" alt="pacoCTF Logo" class="logo">
+  </div>
 
-    <header>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="challenges.html">Challenges</a>
-            <a href="/public/sidequiz.html">Side Challenges</a>
-            <a href="about.html">About Us</a>
-            <a href="https://discord.gg/HsrR2QSm" target="_blank"><i class="fab fa-discord"></i></a>
-            <a href="https://www.linkedin.com/company/cortex-ctf/" target="_blank"><i class="fab fa-linkedin"></i></a>
-            <a href="https://chanuka1.medium.com/" target="_blank"><i class="fab fa-medium"></i></a>
-        </nav>
-    </header>
+  <div class="description">
+    <h1>Welcome to pacoCTF</h1>
+    <p>
+      pacoCTF is an immersive cybersecurity platform designed to help you learn and practice ethical hacking skills through hands-on challenges. Our capture-the-flag competitions are perfect for both beginners and experienced security enthusiasts looking to sharpen their skills in a safe, legal environment.
+    </p>
+  </div>
 
+  <div class="button-container">
+    <a href="/how-to-play.html" class="ctf-button">How to Play</a>
+  </div>
 
-    <p>is this about us?</p>
+  <div class="creators-container">
+    <!-- Creator 1 -->
+    <div class="creator-card">
+      <img src="https://media.licdn.com/dms/image/v2/D5603AQHO080bw-Ztog/profile-displayphoto-shrink_800_800/B56ZTG_x7kGoAc-/0/1738505399744?e=1744243200&v=beta&t=uB4dqHrGPIFOMi3v8qVOMX8o2ARUXCy8KybmeqeRFcQ" alt="Chanuka Isuru Sampath Chen" class="creator-photo">
+      <h2>Chanuka Sampath</h2>
+      <p>Designer</p>
+      <div class="social-links">
+        <a href="#"><i class="fab fa-github"></i></a>
+        <a href="#"><i class="fab fa-linkedin"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+      </div>
+    </div>
 
-    
+    <!-- Creator 2 -->
+    <div class="creator-card">
+      <img src="https://media.licdn.com/dms/image/v2/D5603AQGD8gDq2Q1gjg/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1726490933888?e=1744243200&v=beta&t=Qj5zQjRQ4WeEryotXrJSypFzTRyzcED7ILLv2HV8FZU" alt="Sanuja Rubasinghe" class="creator-photo">
+      <h2>Sanuja Rubasinghe</h2>
+      <p>Designer</p>
+      <div class="social-links">
+        <a href="#"><i class="fab fa-github"></i></a>
+        <a href="#"><i class="fab fa-linkedin"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+      </div>
+    </div>
+
+    <!-- Creator 3 -->
+    <div class="creator-card">
+      <img src="https://scontent.fcmb11-1.fna.fbcdn.net/v/t39.30808-6/361987568_1731808203930026_6801472865043552894_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeHrAtFQp3RzWYYtCMpdpUOL9WQl8U5BTZD1ZCXxTkFNkBuoIR1qBp52er5TyOgVaVolm9HY6cOSHQI6Jpo1ysi8&_nc_ohc=7Yr274G2XRoQ7kNvgEsQKs4&_nc_zt=23&_nc_ht=scontent.fcmb11-1.fna&_nc_gid=AAW7NF2gNQac7yZqPaV31PH&oh=00_AYClOEiOAMxnaJzN1lGrqECVnHPoUE6qxxV_xMqb3rkprA&oe=67A680B1" alt="Dayan Hesara" class="creator-photo">
+      <h2>Dayan Hesara</h2>
+      <p>Designer</p>
+      <div class="social-links">
+        <a href="#"><i class="fab fa-github"></i></a>
+        <a href="#"><i class="fab fa-linkedin"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <script src="about.js"></script>
 </body>
 </html>
