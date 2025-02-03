@@ -1,3 +1,17 @@
+
+// Active page indicator
+const activePage = window.location.pathname.endsWith("/") 
+    ? "/portfolio-security-service/index.html" 
+    : window.location.pathname;
+
+const navLinks = document.querySelectorAll('nav a');
+navLinks.forEach(link => {
+    if (link.href.endsWith(activePage)) {
+        link.classList.add('active');
+    }
+});
+
+
 const card_container = document.getElementById("challenge-card-container")
 let currentChallengeId;
 let challengeData;

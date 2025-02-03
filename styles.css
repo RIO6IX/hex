@@ -1,7 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&family=Poppins&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:wght@400;500;900&display=swap');
+
 body {
     padding: 0;
     margin: 0;
 }
+
+/* Navbar styling */
+nav {
+    background-color: aliceblue;
+    height: 3rem;
+    font-size: 1.5rem;
+    font-family: 'Merriweather sans';
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+}
+
+nav a {
+    text-decoration: none;
+    color: rgb(105, 145, 190);
+}
+
+nav a.active {
+    color: rgb(22, 65, 97);
+}
+
+
 .grid-container {
     display: grid;
     grid-template-columns: 250px 1fr;
