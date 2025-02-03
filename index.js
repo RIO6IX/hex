@@ -42,6 +42,7 @@ const modalDifficulty = document.getElementById("difficulty");
 const modalName = document.getElementById("challenge-name");
 const modalAuthor = document.getElementById("author");
 const modalDescription = document.getElementById("description");
+const resourceLink = document.getElementById("resource-link")
 const modalHintContainer = document.getElementById("hint-btn-container")
 const closeBtn = document.querySelector(".close-btn");
 const submitBtn = document.getElementById("submit-btn")
@@ -60,6 +61,8 @@ card_container.addEventListener('click', (event) => {
         modalName.textContent = challengeData[currentChallengeId].name
         modalAuthor.textContent = `AUTHOR: ${challengeData[currentChallengeId].author}`
         modalDescription.textContent = challengeData[currentChallengeId].description 
+
+        resourceLink.setAttribute("href", `${challengeData[currentChallengeId].link}`)
 
         challengeData[currentChallengeId].hints.map((hint,index) => (
             modalHintContainer.innerHTML += `<button class="hint-button" onclick="showHint(${index})">${index + 1}</button>`

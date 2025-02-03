@@ -10,7 +10,6 @@
         "category": "cryptography",
         "difficulty": "Easy",
         "answer":"6de40c26359410422cd1b8f811e96f0d02171228b1a001be6c176dc13f8e2860",
-        
         "hints": ["this is the first hint", "this is the second hint"]
     },
 
