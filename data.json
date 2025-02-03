@@ -43,7 +43,9 @@
         "name": "Mystery",
         "author": "Chanuka Isuru Samapath (RIO6IX)",
         "description": "We've recovered an image, and intelligence suggests that there might be hidden data stored within it.However, nothing is visible at first glance.Can you find the secret information?",
+        "link" : "https://raw.githubusercontent.com/RIO6IX/hex/045f02022514ec290e2ff23dd12df08bcaed32d1/challengers/forensic/cat.png",
         "type": "Forensics",
+        "category": "forensics",
         "difficulty": "Easy",
         "answer":"db9ae13cfbdff0db6315cb16657db8b889eb4e3ad829e8378cd203f27c5c11f5",
         "hints": ["Sometimes, useful data is stored in metadata fields"]
@@ -54,7 +56,9 @@
         "name": "See Stego? ",
         "author": "Chanuka Isuru Samapath (RIO6IX)",
         "description": "We suspect that someone has hidden information inside image. However, without the right key, we can't access it. Can you find the hidden flag?.",
+        "link": "https://raw.githubusercontent.com/RIO6IX/hex/fc77e576d763f0c08e39fefdaf41e90c643669ab/challengers/forensic/mycat.jpeg",
         "type": "Forensics",
+        "category": "forensics",
         "difficulty": "Easy",
         "answer":"9a65fa90e17347b8e1528b6975036d8c8e9a4b7fd6c5c9936633fa1844b62dc1",
         "hints": ["password"]
@@ -64,8 +68,10 @@
         "id":5,
         "name": "Stego Secrets",
         "author": "Chanuka Isuru Samapath (RIO6IX)",
-        "description": "This image has been tampered with in multiple ways.Can you retrieve the hidden flag? <a href='https://raw.githubusercontent.com/RIO6IX/hex/045f02022514ec290e2ff23dd12df08bcaed32d1/challengers/forensic/images.jpeg' download>here the file</a>",
+        "description": "This image has been tampered with in multiple ways.Can you retrieve the hidden flag? ",
+        "link":"https://raw.githubusercontent.com/RIO6IX/hex/045f02022514ec290e2ff23dd12df08bcaed32d1/challengers/forensic/images.jpeg",
         "type": "Forensics",
+        "category": "forensics",
         "difficulty": "Easy",
         "answer":"0e71e4936050d2259d796f0c2cb2d0ebf95650607edc36bb7c1eacc6d4799c52",
         "hints": ["password123"]
