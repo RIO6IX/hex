@@ -75,6 +75,7 @@ function checkAnswer() {
     const answer = challengeData[currentChallengeId].answer
     const hash = CryptoJS.SHA256(userAnswer.value.trim() + SALT).toString();
     if (answer === hash) {
+        modal.style.display = 'none'
         showConfetti()
     } else {
         flashRedBorder()
