@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linux Command Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #f4f7fa;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            max-width: 700px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .header {
+            font-size: 1.8em;
+            margin-bottom: 30px;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .header span {
+            display: block;
+        }
+
+        .header .quiz-title {
+            font-size: 2em;
+            color: #4CAF50;
+            margin-bottom: 10px;
+        }
+
+        .header .challenges-left {
+            font-size: 1.2em;
+            color: #555;
+        }
+
+        .question-box {
+            margin-bottom: 30px;
+            padding: 25px;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            background-color: #fafafa;
+        }
+
+        .question-box.correct {
+            background-color: #e8f5e9;
+            border-color: #4caf50;
+        }
+
+        .question-box.incorrect {
+            background-color: #ffebee;
+            border-color: #f44336;
+        }
+
+        input[type="text"] {
+            width: 90%;
+            padding: 12px;
+            margin: 15px 0;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border 0.3s ease;
+        }
+
+        input[type="text"]:focus {
+            border-color: #4caf50;
+            outline: none;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .result-container {
+            display: none;
+            margin-top: 40px;
+            padding: 20px;
+            background-color: #f1f1f1;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #answer-list p {
+            font-size: 16px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        #answer-list strong {
+            color: #4CAF50;
+        }
+
+        #answer-list .incorrect strong {
+            color: #f44336;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 25px;
+                max-width: 100%;
+            }
+
+            input[type="text"] {
+                width: 100%;
+            }
+
+            button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <span class="quiz-title">Linux Command Quiz 1</span>
+            <span class="challenges-left">Challenges Remaining: <span id="challenges-left">20</span></span>
+        </div>
+
+        <div class="question-box">
+            <div id="question"></div>
+            <input type="text" id="answer" placeholder="Enter your answer">
+            <button onclick="checkAnswer()">Submit</button>
+        </div>
+
+        <div class="result-container" id="result-container">
+            <h3>Quiz Completed!</h3>
+            <div id="answer-list"></div>
+            <h4 id="score-summary"></h4>
+        </div>
+    </div>
+
+    <script>
+        const questions = [
+            { question: "How to display a file's contents?", answer: "cat file.txt" },
+            { question: "What command is used to change file permissions?", answer: "chmod" },
+            { question: "How to list all files including hidden ones?", answer: "ls -a" },
+            { question: "Which command shows current directory?", answer: "pwd" },
+            { question: "Which command is used to show disk usage?", answer: "df" },
+            { question: "What command is used to check system memory?", answer: "free" },
+            { question: "How to display the manual of a command?", answer: "man command" },
+            { question: "Which command is used to remove files?", answer: "rm" },
+            { question: "How to copy files?", answer: "cp file1.txt file2.txt" },
+            { question: "Which command is used to rename a file?", answer: "mv oldname.txt newname.txt" },
+            { question: "How to create a directory?", answer: "mkdir newdir" },
+            { question: "How to remove a directory?", answer: "rmdir dir" },
+            { question: "How to check the current user?", answer: "whoami" },
+            { question: "Which command displays the last system logins?", answer: "last" },
+            { question: "How to show the contents of a file page by page?", answer: "less file.txt" },
+            { question: "Which command shows process information?", answer: "ps" },
+            { question: "How to change the current directory?", answer: "cd directory_name" },
+            { question: "Which command shows the environment variables?", answer: "env" },
+            { question: "How to search for a word in a file?", answer: "grep 'word' file.txt" },
+            { question: "What command is used to display the current date?", answer: "date" }
+        ];
+
+        let currentQuestion = 0;
+        let correctAnswers = 0;
+        let userAnswers = [];
+
+        function displayQuestion() {
+            const questionElement = document.getElementById('question');
+            questionElement.textContent = `Question ${currentQuestion + 1}: ${questions[currentQuestion].question}`;
+            document.getElementById('answer').value = '';
+            document.getElementById('answer').focus();
+        }
+
+        function checkAnswer() {
+            const userAnswer = document.getElementById('answer').value.trim().toLowerCase();
+            const correctAnswer = questions[currentQuestion].answer.toLowerCase();
+            const questionBox = document.querySelector('.question-box');
+
+            // Prevent submission without an answer
+            if (userAnswer === '') {
+                alert('Please provide an answer!');
+                return;
+            }
+
+            // Save the answer for later display
+            userAnswers.push({ question: questions[currentQuestion].question, userAnswer, correctAnswer });
+
+            // Check if the answer is correct or incorrect
+            if (userAnswer === correctAnswer) {
+                correctAnswers++;
+                questionBox.classList.add('correct');
+            } else {
+                questionBox.classList.add('incorrect');
+            }
+
+            // Wait for a moment before going to the next question
+            setTimeout(() => {
+                questionBox.classList.remove('correct', 'incorrect');
+                currentQuestion++;
+
+                // Update challenges left
+                document.getElementById('challenges-left').textContent = questions.length - currentQuestion;
+
+                // If there are still more questions, display the next one
+                if (currentQuestion < questions.length) {
+                    displayQuestion();
+                } else {
+                    showResults();
+                }
+            }, 1000);
+        }
+
+        function showResults() {
+            const resultContainer = document.getElementById('result-container');
+            const answerList = document.getElementById('answer-list');
+            const scoreSummary = document.getElementById('score-summary');
+
+            resultContainer.style.display = 'block';
+            answerList.innerHTML = '';
+
+            // Loop through all questions and show the user's answer with feedback
+            userAnswers.forEach((answer, index) => {
+                const p = document.createElement('p');
+                const isCorrect = answer.userAnswer === answer.correctAnswer;
+
+                p.innerHTML = `Q${index + 1}: ${answer.question} <br>Your Answer: <strong>${answer.userAnswer}</strong> <br>Correct Answer: <strong>${answer.correctAnswer}</strong>`;
+                if (isCorrect) {
+                    p.classList.add('correct');
+                } else {
+                    p.classList.add('incorrect');
+                }
+                answerList.appendChild(p);
+            });
+
+            // Show final score
+            scoreSummary.innerHTML = `Your final score is: ${correctAnswers}/${questions.length}`;
+            alert(`Quiz completed! Your final score: ${correctAnswers}/${questions.length}`);
+        }
+
+        displayQuestion();
+    </script>
+</body>
+</html>
