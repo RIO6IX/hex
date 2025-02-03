@@ -22,6 +22,7 @@
     max-width: 200px;
     height: auto;
     filter: drop-shadow(0 0 10px #2ecc71);
+    padding-top: 50px;
   }
   
   /* Description */
@@ -113,18 +114,18 @@
   }
   
   /* Social Links */
-  .social-links {
+  .social-links, .ctf-links {
     margin-top: 1rem;
   }
   
-  .social-links a {
+  .social-links a, .ctf-links a {
     color: #e0e0e0;
     margin: 0 0.5rem;
     font-size: 1.5rem;
     transition: color 0.3s, transform 0.3s;
   }
   
-  .social-links a:hover {
+  .social-links a:hover, .ctf-links a:hover {
     color: #2ecc71;
     transform: scale(1.2);
   }
