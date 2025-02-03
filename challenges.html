@@ -14,21 +14,35 @@
         <nav>
             <a href="index.html">Home</a>
             <a href="challenges.html">Challenges</a>
-            <a href="index.html">Side Challenges</a>
+            <a href="public/sidequiz.html">Side Challenges</a>
             <a href="index.html">About Us</a>
         </nav>
     </header>
 
     <div class="grid-container">
-        <div class="sidebar">
+        <div class="sidebar" id="sidebar">
             <h2>Filter Challenges</h2>
             <label for="category">Select Category:</label>
-            <select id="category" onchange="filterQuestions()">
+            <!-- <select id="category" onchange="filterQuestions()">
                 <option value="all">All</option>
                 <option value="cryptography">Cryptography</option>
                 <option value="forensics">Forensics</option>
                 <option value="reverseEngineering">Reverse Engineering</option>
-            </select>
+            </select> -->
+            <div class="filter-section" id="category-filter">
+                <div class="category active" data-filter="all">All Categories</div>
+                <div class="category" data-filter="forensics">Forensics</div>
+                <div class="category" data-filter="cryptography">Cryptography</div>
+                <div class="category" data-filter="reverseEngineering">Reverse Engineering</div>
+            </div>
+
+            <label for="category">Select Difficulty:</label>
+            <div class="filter-section" id="difficulty-filter">
+                <div class="category active" data-filter="all">All Difficulty</div>
+                <div class="category" data-filter="Easy">Easy</div>
+                <div class="category" data-filter="Medium">Medium</div>
+                <div class="category" data-filter="Hard">Hard</div>
+            </div>
         </div>
     
         <div class="main-content">

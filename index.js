@@ -22,7 +22,7 @@ fetch('data.json')
         challengeData = data
         data.map(challenge => (
             card_container.innerHTML += `
-                <div class='challenge-card' data-category='${challenge.category}'>
+                <div class='challenge-card' data-category='${challenge.category}' data-difficulty='${challenge.difficulty}'>
                     <div class='challenge-type'>${challenge.type}</div>
                     <div class='challenge-difficulty ${challenge.difficulty}'>${challenge.difficulty}</div>
                     <div class='challenge-title'>${challenge.name}</div>
@@ -31,10 +31,10 @@ fetch('data.json')
             `
         ))
         setTimeout(() => {data = null}, 1000)
-        filterQuestions()
     })
     .catch(error => console.error(error))
-    
+
+const userAnswer = document.getElementById("flag-input")    
 const modal = document.getElementById("modal")
 const modalContent = document.getElementById("modal-content")
 const modalType = document.getElementById("type");
@@ -73,7 +73,6 @@ card_container.addEventListener('click', (event) => {
 function checkAnswer() {
     const SALT = "mySecretSalt123";
     const answer = challengeData[currentChallengeId].answer
-    const userAnswer = document.getElementById("flag-input")
     const hash = CryptoJS.SHA256(userAnswer.value.trim() + SALT).toString();
     if (answer === hash) {
         showConfetti()
@@ -90,6 +89,7 @@ closeBtn.addEventListener('click', () => {
     modal.style.display = 'none'
     hint.style.display = "none"
     modalHintContainer.innerHTML = ''
+    userAnswer.value = ''
 })
 
 window.addEventListener('click', (event) => {
@@ -97,6 +97,7 @@ window.addEventListener('click', (event) => {
         modal.style.display = 'none'
         hint.style.display = "none"
         modalHintContainer.innerHTML = ''
+        userAnswer.value = ''
     }
 })
 
@@ -133,16 +134,41 @@ function showConfetti() {
     }
 }
 
-function filterQuestions() {
-    let selectedCategory = document.getElementById("category").value
-    let questions = document.querySelectorAll(".challenge-card")
+// code to implement filter functionality
 
-    questions.forEach(question => {
-        if (selectedCategory === "all" || question.getAttribute("data-category") === selectedCategory) {
-            question.classList.add("visible")
+const categoryFilter = document.getElementById("category-filter");
+const difficultyFilter = document.getElementById("difficulty-filter");
+
+function filterChallenges() {
+    let selectedCategory = document.querySelector("#category-filter .active")?.dataset.filter || "all";
+    let selectedDifficulty = document.querySelector("#difficulty-filter .active")?.dataset.filter || "all";
+    
+    let questions = document.querySelectorAll(".challenge-card");
+
+    questions.forEach((question) => {
+        let matchesCategory = selectedCategory === "all" || question.getAttribute("data-category") === selectedCategory;
+        let matchesDifficulty = selectedDifficulty === "all" || question.getAttribute("data-difficulty") === selectedDifficulty;
+
+        if (matchesCategory && matchesDifficulty) {
+            question.classList.remove("not-visible");
         } else {
-            question.classList.remove("visible")
+            question.classList.add("not-visible");
         }
-    })
+    });
 }
 
+categoryFilter.addEventListener("click", (event) => {
+    if (event.target.classList.contains("category")) {
+        document.querySelectorAll("#category-filter .category").forEach(category => category.classList.remove("active"));
+        event.target.classList.add("active");
+        filterChallenges();
+    }
+});
+
+difficultyFilter.addEventListener("click", (event) => {
+    if (event.target.classList.contains("category")) {
+        document.querySelectorAll("#difficulty-filter .category").forEach(category => category.classList.remove("active"));
+        event.target.classList.add("active");
+        filterChallenges();
+    }
+});

@@ -53,13 +53,27 @@ nav a.active {
     margin-bottom: 10px;
 }
 
-select {
+.filter-section {
+    border-radius: 10px;
+    border: 1px solid gray;
+}
+
+.filter-section div:first-child {
+    border-radius: 10px 10px 0 0;
+}
+
+.filter-section div:last-child {
+    border-radius: 0 0 10px 10px;
+}
+
+.category {
+    cursor: pointer;
     padding: 10px;
-    font-size: 16px;
-    background-color: #444;
-    color: white;
-    border: none;
-    outline: none;
+}
+
+.category.active {
+    background-color: antiquewhite;
+    color: black;
 }
 
 /* Main content div */
@@ -84,11 +98,10 @@ select {
     margin: 10px;
     padding: 10px;
     position: relative;
-    display: none;
 }
 
-.challenge-card.visible {
-    display: block;
+.challenge-card.not-visible {
+    display: none;
 }
 
 .challenge-link {
