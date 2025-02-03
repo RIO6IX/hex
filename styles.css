@@ -3,11 +3,12 @@
 body {
     padding: 0;
     margin: 0;
+    background-color: #c0b2b2;
 }
 
 /* Navbar styling */
 nav {
-    background-color: aliceblue;
+    background-color: rgb(78, 94, 97);
     height: 3rem;
     font-size: 1.5rem;
     font-family: 'Merriweather sans';
@@ -20,11 +21,11 @@ nav {
 
 nav a {
     text-decoration: none;
-    color: rgb(105, 145, 190);
+    color: rgb(187, 191, 225);
 }
 
 nav a.active {
-    color: rgb(22, 65, 97);
+    color: rgb(49, 27, 97);
 }
 
 
@@ -269,7 +270,7 @@ nav a.active {
     position: absolute;
     width: 10px;
     height: 10px;
-    background-color: white;
+    background-color: rgba(252, 252, 252, 0.94);
     opacity: 0.8;
     border-radius: 50%;
     animation: fall linear infinite;
