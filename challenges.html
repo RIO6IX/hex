@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
     <script src="index.js" defer></script>
+    <script src="chatbot.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
-    <script src="./Js/popup.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="./CSS/popup.css">
+    <link rel="stylesheet" href="chatbot.css">
 
     <title>CTF</title>
 </head>
@@ -81,14 +81,20 @@
         </div>
     </div>
 
-    <!-- Full-Screen Popup Banner -->
-    <div id="popupBanner" class="popup-banner">
-        <div class="popup-banner-content">
-            <span class="popup-close">&times;</span>
-            <img src="https://img.freepik.com/free-vector/realistic-sri-lanka-independence-day-illustration_23-2150003077.jpg?t=st=1738608756~exp=1738612356~hmac=ab6bc697d488327efb65ca3dec29a0dc4eb1b822454421b775a9988303c9c32c&w=826" alt="Popup Image" class="popup-banner-image">
-            <!-- <div class="popup-caption">Your caption goes here</div> -->
+   
+ 
+    <!-- Chatbot Widget -->
+    <div id="chatbot-container">
+        <div id="chatbot-header">
+            RIO BOT
+            <button id="chatbot-reset">&times;</button>
+        </div>
+        <div id="chatbot-messages"></div>
+        <div id="chatbot-input-container">
+            <input type="text" id="chatbot-input" placeholder="Ask me about challenges...">
+            <button id="chatbot-send">Send</button>
         </div>
     </div>
-
+    <script src="chatbot.js" defer></script>
 </body>
 </html>
