@@ -1,0 +1,77 @@
+/* Define theme variables for easy customization */
+:root {
+    --nav-bg-color: rgba(0, 0, 0, 0.4);  /* Semi-transparent black */
+    --nav-blur: 8px;                     /* Amount of blur */
+    --nav-text-color: #e0e0e0;            /* Default text color */
+    --nav-hover-color: #2ecc71;           /* Accent color on hover (e.g., neon green) */
+    --nav-font-family: 'Orbitron', sans-serif;  /* Example futuristic font */
+  }
+  
+  /* Header styling to keep the nav bar fixed at the top */
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: var(--nav-bg-color);
+    backdrop-filter: blur(var(--nav-blur)); /* Apply the blur effect */
+    -webkit-backdrop-filter: blur(var(--nav-blur)); /* For Safari support */
+    z-index: 100;
+    padding: 1rem 2rem;
+  }
+  
+  /* Navigation container styles */
+  nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  /* Style for all navigation links */
+  nav a {
+    color: var(--nav-text-color);
+    text-decoration: none;
+    font-family: var(--nav-font-family);
+    font-size: 1rem;
+    position: relative;
+    transition: color 0.3s ease;
+  }
+  
+  /* Underline effect using a pseudo-element */
+  nav a::after {
+    content: "";
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--nav-hover-color);
+    transition: width 0.3s ease;
+  }
+  
+  /* Hover effects for links */
+  nav a:hover {
+    color: var(--nav-hover-color);
+  }
+  
+  nav a:hover::after {
+    width: 100%;
+  }
+  
+  /* Icon sizing if needed */
+  nav a i {
+    font-size: 1.2rem;
+  }
+  
+/* Style for the active tab */
+nav a.active {
+  color: var(--nav-hover-color); /* Highlight active tab */
+}
+
+/* Ensure underline is always visible on active tab */
+nav a.active::after {
+  width: 100%;
+}

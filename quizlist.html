@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Challenges</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #c0b2b2;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+        }
+        header {
+            background: #7c5137;
+            padding: 15px;
+            color: white;
+        }
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-size: 18px;
+        }
+        .quiz-container {
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            text-align: left;
+        }
+        .category {
+            margin-top: 20px;
+            font-size: 22px;
+            font-weight: bold;
+            color: #333;
+            cursor: pointer;
+            background: #ddd;
+            padding: 10px;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .quiz-list {
+            list-style: none;
+            padding: 0;
+            display: none;
+        }
+        .quiz-list li {
+            background: #fff;
+            margin: 5px 0;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: transform 0.3s, background 0.3s;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        .quiz-list li:hover {
+            transform: scale(1.05);
+            background: #e8f5e9;
+        }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const quizCategories = {
+                "Linux Basics": [
+                    { name: "Linux Basics Quiz 1", url: "quiz/q1.html" },
+                    { name: "Linux Basics Quiz 2", url: "quiz/q2.html" }
+                ],
+                "Networking": [
+                    { name: "Networking Quiz 1", url: "quiz/q3.html" },
+                    { name: "Networking Quiz 2", url: "quiz/q4.html" }
+                ],
+                "Web Security": [
+                    { name: "Web Security Quiz 1", url: "quiz/q5.html" }
+                ],
+                "Cryptography": [
+                    { name: "Cryptography Quiz 1", url: "quiz/q6.html" }
+                ],
+                "Reverse Engineering": [
+                    { name: "Reverse Engineering Quiz 1", url: "quiz/q7.html" }
+                ],
+                "Forensics": [
+                    { name: "Forensics Quiz 1", url: "quiz/q8.html" }
+                ]
+            };
+            
+            const quizContainer = document.getElementById("quiz-container");
+            
+            for (let category in quizCategories) {
+                let categoryTitle = document.createElement("div");
+                categoryTitle.className = "category";
+                categoryTitle.innerHTML = `${category} <i class='fas fa-chevron-down'></i>`;
+                categoryTitle.onclick = function() {
+                    let list = this.nextElementSibling;
+                    list.style.display = list.style.display === "block" ? "none" : "block";
+                };
+                quizContainer.appendChild(categoryTitle);
+                
+                let quizList = document.createElement("ul");
+                quizList.className = "quiz-list";
+                
+                quizCategories[category].forEach(quiz => {
+                    let listItem = document.createElement("li");
+                    listItem.textContent = quiz.name;
+                    listItem.onclick = function() {
+                        window.location.href = quiz.url;
+                    };
+                    quizList.appendChild(listItem);
+                });
+                quizContainer.appendChild(quizList);
+            }
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="challenges.html">Challenges</a>
+            <a href="quizlist.html">Quiz</a>
+            <a href="about.html">About Us</a>
+            <a href="https://discord.gg/HsrR2QSm" target="_blank"><i class="fab fa-discord"></i></a>
+            <a href="https://www.linkedin.com/company/cortex-ctf/" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://chanuka1.medium.com/" target="_blank"><i class="fab fa-medium"></i></a>
+            <a href="https://chat.whatsapp.com/E7vlULhFjkR0XVXqQURfTO" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        </nav>
+    </header>
+    <br>
+    <div class="quiz-container" id="quiz-container">
+        <h1>Quiz Challenges</h1>
+    </div>
+</body>
+</html>
